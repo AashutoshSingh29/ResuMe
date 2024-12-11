@@ -1,17 +1,13 @@
-# ATS Algorithm Scoreboard
+# 🚀 Welcome to **ResuMe Up!** 🚀
 
-The ATS algorithm evaluates resumes based on various segments. Below is the breakdown of how each segment is scored:
+The only resume builder that not only helps you create a standout resume but also gets it **ATS-approved**! 🌟 Why settle for basic when you can create a resume that not only looks great but also gets scored by an ATS algorithm? ⚡
 
-| Segment                       | Maximum Marks | Description                                                                 |
-|-------------------------------|---------------|-----------------------------------------------------------------------------|
-| **Contact Information**        | 10            | Assesses the accuracy and completeness of contact details (email, phone).   |
-| **Resume Format & Layout**     | 20            | Evaluates the readability, consistency, and professional appearance.        |
-| **Skills Section**             | 15            | Scores the clarity and relevance of skills listed in the resume.            |
-| **Experience & Employment**    | 25            | Rates the relevance and clarity of job experience and accomplishments.      |
-| **Education**                  | 10            | Assesses the clarity and relevancy of educational background.               |
-| **Keywords Matching**          | 15            | Evaluates how well the resume aligns with the target job description.       |
-| **Grammar & Spelling**         | 5             | Scores the grammar, spelling, and language quality of the resume.           |
-| **Certifications & Achievements** | 10          | Assesses the relevance and value of certifications and achievements listed. |
-| **Overall ATS Compatibility**  | 10            | Measures the compatibility of the resume with Applicant Tracking Systems.   |
+Whether you're a job seeker, career changer, or just want to flex your skills in style, **ResuMe Up** does the heavy lifting. 💼✨
 
-## Total: 100 Marks
+## Features:
+- 📝 **Craft resumes** that stand out from the crowd.
+- 📈 **ATS optimization** to ensure you get noticed.
+- 🎯 **Instant resume score** to check if your resume is hiring manager-approved.
+- 🔥 **Sassy templates** that scream "hire me!"
+
+No more guessing—let the algorithm do the talking! 💬👔
