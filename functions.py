@@ -92,11 +92,57 @@ def analyze_resume(filepath, job_criteria):
 
 
     resume_text = text.lower()
-    for edu in job_criteria["education"]:
-        if edu.lower() in resume_text:
-            results["education_matches"].append(edu)
-        else:
-            results["missing_education"].append(edu)
+
+
+
+
+
+    # Code for cheking the presence of education degree in the resume # 
+
+
+        # for edu in job_criteria["education"]:
+    #     if edu.lower() in resume_text:
+    #         results["education_matches"].append(edu)
+    #     else:
+    #         results["missing_education"].append(edu)
+
+
+
+    # results = {
+    #     "education_matches": [],
+    #     "missing_education": [],
+    # }
+
+    bachelors_matched = []
+    for bachelor in job_criteria["education"]["bachelors"]:
+        if bachelor.lower() in resume_text:
+            bachelors_matched.append(bachelor)
+
+    if bachelors_matched :
+        masters_matched = []
+        for master in job_criteria["education"]["masters"]:
+            if master.lower() in resume_text:
+                masters_matched.append(master)
+
+
+    # Handle bachelor's degree matches
+    if bachelors_matched:
+        results["education_matches"].append("Bachelors: " + ", ".join(bachelors_matched))
+    else:
+        results["missing_education"].append("No Bachelor's degree found.")
+
+     # Handle master's degree matches
+    if masters_matched:
+        results["education_matches"].append("Masters: " + ", ".join(masters_matched))
+
+    # Handle missing education
+    if not bachelors_matched and not masters_matched:
+        results["missing_education"].append("No education information found.")
+
+
+
+
+    # Education cheking function ends here
 
     if "table" in resume_text or "image" in resume_text:
         results["format_issues"].append("Contains tables or images")
@@ -137,3 +183,45 @@ def generate_feedback(results, output_path="feedback.txt"):
     with open(output_path, "w") as f:
         f.write("\n".join(feedback))
     return output_path
+
+
+
+
+
+
+
+
+
+
+
+def generate_appreciation(results, output_path="appreciation.txt"):
+    appreciation = []
+
+    # Check for matched keywords
+    if results["keyword_matches"]:
+        appreciation.append(f"Keywords Matched: {', '.join(str(keyword) for keyword in results['keyword_matches'])}")
+    
+    # Check for matched skills
+    if results["skills_matches"]:
+        appreciation.append(f"Skills Matched: {', '.join(str(skill) for skill in results['skills_matches'])}")
+    
+    # Check for matched education
+    if results["education_matches"]:
+        appreciation.append(f"Education Matches: {', '.join(str(edu) for edu in results['education_matches'])}")
+    
+    # Check for matched social details (email, phone, linkedin, github)
+    social_matches = []
+    for key in ["email", "phone", "linkedin", "github"]:
+        if results.get(f"{key}", []):
+            social_matches.append(f"{key.capitalize()}: {', '.join(str(item) for item in results[key])}")
+
+    if social_matches:
+        appreciation.append(f"Social Details Matched: {', '.join(social_matches)}")
+    
+    # If there are any matched items, write them to the appreciation file
+    if appreciation:
+        with open(output_path, "w") as f:
+            f.write("\n".join(appreciation))
+        print(f"Appreciation file generated at: {output_path}")
+    else:
+        print("No matched points found to appreciate.")

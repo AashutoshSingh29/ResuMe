@@ -1,10 +1,11 @@
-from functions import load_job_criteria, analyze_resume, calculate_score, generate_feedback
+from functions import load_job_criteria, analyze_resume, calculate_score, generate_feedback,generate_appreciation
 
 def ats_algorithm(filepath, job_criteria_path="job_criteria.json"):
     job_criteria = load_job_criteria(job_criteria_path)
     results, text = analyze_resume(filepath, job_criteria)
     score = calculate_score(results, job_criteria)
     feedback_file = generate_feedback(results)
+    appreciation_file = generate_appreciation(results)
     return score, feedback_file
 
 # Usage
